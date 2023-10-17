@@ -4,21 +4,19 @@ import { ProduitService } from '../services/produit.service';
 
 @Component({
   selector: 'app-add-produit',
-  templateUrl: './add-produit.component.html'
+  templateUrl: './add-produit.component.html',
 })
+
 export class AddProduitComponent {
+  newProduit = new Produit();
 
-  newProduit= new Produit();
-  
-  message : string | undefined ;
-  constructor(private produitService: ProduitService){ }
-  ngOnInit():void{
+  message!: string;
 
-  }
+  constructor(private produitService: ProduitService) { }
+
   addProduit(){
-    //console.log(this.newProduit);
+    // console.log(this.newProduit);
     this.produitService.ajouterProduit(this.newProduit);
-    this.message="Produit " + this.newProduit.nomProduit + " ajoutee avec succes !"
+    this.message = "produit " + this.newProduit.nomProduit + " ajouter avec succes"
   }
-
 }
